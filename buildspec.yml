@@ -15,6 +15,7 @@ phase :
     finally :
       - echo Hi Abhishek !!
 artifacts:
-  base-directory: src/
   files:
     - '**/*'
+    - appspec.yml
+    - 'deploy-scripts/**/*'
