@@ -8,6 +8,7 @@ phase :
   pre_build :
     commands :
       - npm install
+      - npm install sweetalert2
   build :
     commands :
       - ng build --prod
