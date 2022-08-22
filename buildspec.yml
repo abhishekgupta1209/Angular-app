@@ -9,6 +9,7 @@ phase :
     commands :
       - npm install
       - npm install sweetalert2
+      - npm install bootstrap@3.3.7
   build :
     commands :
       - ng build --prod
