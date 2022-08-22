@@ -1,0 +1,90 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Departure</th>
+        <th scope="col">Duration</th>
+        <th scope="col"><a routerLinkActive="active" class="btn" (click)="sortData('TDeparture')">Arrival</a> </th>
+        <th scope="col"><a routerLinkActive="active"  class="btn" (click)="sortData('Price')">Price ↑</a> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of data; index as idx">
+        <th scope="row">
+            <div style="display: flex;">
+                <img src="{{item.flightImg}}">
+                <p class="flight">{{item.flightName}}</p>
+
+            </div>
+
+            <div>
+                <p style="margin-bottom:2px ;">{{item.SArrival}} <span style="color: gray; font-size:small;">{{item.Arrival}}</span> </p>
+                <p>{{item.TArrival}}</p>
+            </div>
+            
+            <a href="#" style="font-size: small;">Partially Refundable</a>
+        </th>
+        <td style="font-size: large; font-weight:bold; margin-top:50px;">{{item.Duration}}</td>
+
+        <td>
+            <div>
+                <p style="margin-bottom:2px ;">{{item.SDeparture}} <span style="color: gray; font-size:small;">{{item.departure}}</span> </p>
+                <p>{{item.TDeparture}}</p>
+            </div>
+        </td>
+
+        <td style="display: flex;">
+            <div class="price" >
+                <p style="margin: 10px 10px 0px 10px; font-size:large; font-weight: bold;">{{item.Price}} <br></p>
+
+                
+                <span style="color: gray; font-size:small;">No cost EMI from xyz</span>
+            </div>
+
+            <button class="btn btn-danger" style="margin: 10px;" (click)="openPopup(idx)">Book</button>
+
+            <div
+               class="modal"
+              tabindex="-1"
+              role="dialog"
+              [ngStyle]="{'display':displayStyle}">
+              <div class="modal-dialog" role="document">
+              <div class="modal-content">
+              <div class="modal-header">
+              <h4 class="modal-title">
+                <img src="{{flightData.flightImg}}" alt="">
+                {{flightData.flightName}}
+              </h4>
+            </div>
+
+            <div class="modal-body">
+                <h4 style="text-align: center ;">Ticket Information</h4>
+                <p>Departure: {{flightData.SDeparture}} {{flightData.departure}} </p>
+                <p>{{flightData.TDeparture}}</p>
+                <p>Arrival : {{flightData.SArrival}} {{flightData.Arrival}}</p>
+                <p>{{flightData.TArrival}}</p>
+                <p>Duration: {{flightData.Duration}}</p>
+                <p>Price: {{flightData.Price}}</p>
+                
+  
+           </div>
+
+
+          <div class="modal-footer">
+             <button type="button" class="btn btn-danger" 
+              (click)="closePopup()">
+              Pay Now
+          </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+        </td>
+      </tr>
+     
+    </tbody>
+  </table>
+
+  <button class="btn btn-danger" (click)="isLoggedOut()">LogOut</button>
